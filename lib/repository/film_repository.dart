@@ -62,6 +62,7 @@ class FilmRepository extends IFilmRepository {
       final result = await iFilmService.getUpcomingFilms();
       if (result != null) {
         return result;
+        print(result);
       } else {
         return null;
       }
