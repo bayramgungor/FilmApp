@@ -10,7 +10,6 @@ class FilmRepository extends IFilmRepository {
 
   @override
   Future<FilmsModel?> getFilmDetail(int id) {
-    // TODO: implement getFilmDetail
     throw UnimplementedError();
   }
 
