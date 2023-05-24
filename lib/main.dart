@@ -16,6 +16,7 @@ class FilmScreen extends StatefulWidget {
 
 class _FilmScreenState extends State<FilmScreen> {
   final FilmViewModel _viewModel = FilmViewModel();
+
   @override
   void initState() {
     _viewModel.getPopulerFilm();
@@ -51,8 +52,11 @@ class _FilmScreenState extends State<FilmScreen> {
                   itemCount: _viewModel.filmModel?.results?.length,
                   itemBuilder: (context, index) => Card(
                     child: ListTile(
-                        leading: Text(
-                            '${_viewModel.filmModel?.results?[index].originalTitle}')),
+                      title: Text(
+                          '${_viewModel.filmModel?.results?[index].originalTitle}'),
+                      subtitle: Text(
+                          '${_viewModel.filmModel?.results?[index].overview}'),
+                    ),
                   ),
                 )),
                 Container(),
