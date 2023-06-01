@@ -7,6 +7,7 @@ import 'package:film_app/services/i_film_service.dart';
 class FilmViewModel {
   IFilmRepository iFilmRepository = FilmRepository(iFilmService: FilmService());
   FilmsModel? filmModel = FilmsModel();
+
   final imageURL = 'https://image.tmdb.org/t/p/original';
 
   FilmService iFilmService = FilmService();

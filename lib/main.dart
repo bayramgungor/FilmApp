@@ -51,13 +51,13 @@ class _FilmScreenState extends State<FilmScreen> {
                     child: ListView.builder(
                   itemCount: _viewModel.filmModel?.results?.length,
                   itemBuilder: (context, index) => Card(
-                    child: ListTile(
-                      title: Text(
-                          '${_viewModel.filmModel?.results?[index].originalTitle}'),
-                      subtitle: Text(
-                          '${_viewModel.filmModel?.results?[index].overview}'),
-                    ),
-                  ),
+                      child: ListTile(
+                          title: Text(
+                              '${_viewModel.filmModel?.results?[index].originalTitle}'),
+                          subtitle: Text(
+                              '${_viewModel.filmModel?.results?[index].overview}'),
+                          leading: Image.network(
+                              '${_viewModel.imageURL}${_viewModel.filmModel?.results?[index].backdropPath}'))),
                 )),
                 Container(),
                 Container(),
