@@ -1,6 +1,7 @@
 import 'package:film_app/repository/film_repository.dart';
 import 'package:film_app/repository/i_film_repository.dart';
 import 'package:film_app/services/film_service.dart';
+import 'package:film_app/view/top_rated_screen.dart';
 import 'package:film_app/viewmodel/film_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -47,22 +48,29 @@ class _FilmScreenState extends State<FilmScreen> {
                 ]),
               ),
               body: TabBarView(children: [
-                Center(
-                    child: ListView.builder(
-                  itemCount: _viewModel.filmModel?.results?.length,
-                  itemBuilder: (context, index) => Card(
-                      child: ListTile(
-                          title: Text(
-                              '${_viewModel.filmModel?.results?[index].originalTitle}'),
-                          subtitle: Text(
-                              '${_viewModel.filmModel?.results?[index].overview}'),
-                          leading: Image.network(
-                              '${_viewModel.imageURL}${_viewModel.filmModel?.results?[index].backdropPath}'))),
-                )),
-                Container(),
+                tabbarView(),
+                TopRatedScreen(),
                 Container(),
                 Container()
               ]),
             )),
       );
+
+  Center tabbarView() {
+    return Center(
+        child: ListView.builder(
+      itemCount: _viewModel.filmModel?.results?.length,
+      itemBuilder: (context, index) => Card(
+          child: ListTile(
+              title: Text(
+                  '${_viewModel.filmModel?.results?[index].originalTitle}'),
+              subtitle: Text(
+                  '${_viewModel.filmModel?.results?[index].title}(${_viewModel.filmModel?.results?[index].releaseDate})'),
+              leading: Image.network(
+                '${_viewModel.imageURL}${_viewModel.filmModel?.results?[index].backdropPath}',
+                width: 75,
+                height: 75,
+              ))),
+    ));
+  }
 }

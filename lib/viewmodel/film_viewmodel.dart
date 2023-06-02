@@ -3,6 +3,7 @@ import 'package:film_app/repository/film_repository.dart';
 import 'package:film_app/repository/i_film_repository.dart';
 import 'package:film_app/services/film_service.dart';
 import 'package:film_app/services/i_film_service.dart';
+import 'package:flutter/material.dart';
 
 class FilmViewModel {
   IFilmRepository iFilmRepository = FilmRepository(iFilmService: FilmService());
@@ -27,6 +28,7 @@ class FilmViewModel {
 
   Future<FilmsModel?> getTopRated() async {
     final result = await iFilmRepository.getTopRated();
+    filmModel = result;
     return result;
   }
 
